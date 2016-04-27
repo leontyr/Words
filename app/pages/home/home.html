@@ -1,0 +1,17 @@
+<ion-navbar *navbar>
+  <a href="#top">
+    <ion-title>
+      Words
+    </ion-title>
+  </a>
+</ion-navbar>
+
+<ion-content class="home">
+  <ion-searchbar [(ngModel)]="searchQuery" (input)="getItems($event)" id='top'></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="#word of words">
+      <h1>{{ word.name }}</h1> {{ word.ipa }}
+      <button clear item-right (click)="play('data/'+word.name+'.mp3')">Play</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
